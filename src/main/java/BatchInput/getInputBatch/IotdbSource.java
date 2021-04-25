@@ -1,11 +1,12 @@
 package BatchInput.getInputBatch;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import java.sql.*;
 
-public class IotdbSource extends RichSourceFunction<JsonObject> {
+public class IotdbSource extends RichSourceFunction<JSONObject> {
 
     String driver = "org.apache.iotdb.jdbc.IoTDBDriver";
     String url = "jdbc:iotdb://192.168.3.31:6667/";
@@ -34,7 +35,7 @@ public class IotdbSource extends RichSourceFunction<JsonObject> {
     }
 
     @Override
-    public void run(SourceContext<JsonObject> sourceContext) throws Exception {
+    public void run(SourceContext<JSONObject> sourceContext) throws Exception {
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
 
