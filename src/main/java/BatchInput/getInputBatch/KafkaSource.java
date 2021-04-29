@@ -69,6 +69,6 @@ public class KafkaSource extends RichSourceFunction<JSONObject> {
 
     @Override
     public void cancel() {
-
+        consumer.close();
     }
 }

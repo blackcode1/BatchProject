@@ -40,7 +40,7 @@ public class IotdbSource extends RichSourceFunction<JSONObject> {
         while (resultSet.next()) {
 
             // 将数据发送出去
-            sourceContext.collect();
+//            sourceContext.collect();
         }
     }
 
