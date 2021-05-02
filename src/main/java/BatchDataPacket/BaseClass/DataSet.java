@@ -1,9 +1,10 @@
 package BatchDataPacket.BaseClass;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.dom4j.Element;
 
-public class DataSet {
+public class DataSet<J extends JSON> {
     public String datasetID;
     public String dataSetTopic;
     public String dataSetGroupID;

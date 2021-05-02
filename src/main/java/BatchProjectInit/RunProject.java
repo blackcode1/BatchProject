@@ -1,25 +1,17 @@
 package BatchProjectInit;
 
-import BatchCal.CustomReduceFunction;
+import BatchCal.BatchCal;
 import BatchDataPacket.BaseClass.DataSet;
 import BatchDataPacket.BaseClass.OCProject;
-import BatchInput.getInputBatch.IotdbInput;
-import BatchInput.getInputBatch.IotdbSource;
-import BatchInput.getInputBatch.KafkaInput;
-import BatchInput.getInputBatch.KafkaSource;
-import BatchInput.getInputBroadcast.BroadcastSource;
 import BatchSink.KafkaFormat;
-
+import BatchCal.CustomReduceFunction;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.flink.api.common.io.OutputFormat;
+import org.apache.commons.lang.StringUtils;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.io.jdbc.JDBCInputFormat;
 import org.apache.flink.api.java.operators.DataSource;
-import org.apache.flink.configuration.Configuration;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.types.Row;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -27,7 +19,8 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.OffsetAndTimestamp;
 import org.apache.kafka.common.PartitionInfo;
 import org.apache.kafka.common.TopicPartition;
-import java.io.IOException;
+import BatchInput.getInputBroadcast.BroadcastSource;
+
 import java.util.*;
 public class RunProject {
     public static String logStr;
@@ -43,7 +36,8 @@ public class RunProject {
 
         List<DataSource<JSONObject>> sourceList = new ArrayList<>();
         List<JSONObject> list = new ArrayList<>();
-        for(DataSet dataSet:ocProject.inputDataSetList){
+
+        for(DataSet<JSON> dataSet:ocProject.inputDataSetList){
             if (dataSet.dataSourceType.equals("KAFKA")){
                 Properties props = new Properties();
                 props.setProperty("bootstrap.servers", "192.168.3.32:9092");
@@ -103,23 +97,24 @@ public class RunProject {
 
             }
         }
+        DataSet<JSONObject> resultSet = BatchCal.batchCalTask();
 
-//        DataSource<Map<String, List<Map<String, String>>>> broadcast = env.fromCollection(new BroadcastSource("AC03E0AF43604B4D9F027CE77E18315E", "http://192.168.3.32:8000").getDE());
-//
-//        broadcast.print();
-//
-//
-//        source.groupBy(new KeySelector<JSONObject, String>() {
-//            @Override
-//            public String getKey(JSONObject jsonObject) throws Exception {
-//                Integer idKey = jsonObject.getString("car").hashCode() % 100;
-//                if(StringUtils.isNumeric(jsonObject.getString("car"))) {
-//                    idKey = Math.toIntExact(Long.valueOf(jsonObject.getString("car")) % 100);
-//                }
-//
-//                return idKey.toString();
-//            }
-//        }).reduceGroup(new CustomReduceFunction(confJSON)).withBroadcastSet(broadcast, "broadcast").output(new KafkaFormat());
+        DataSource<Map<String, List<Map<String, String>>>> broadcast = env.fromCollection(new BroadcastSource("AC03E0AF43604B4D9F027CE77E18315E", "http://192.168.3.32:8000").getDE());
+
+        broadcast.print();
+
+
+        resultSet.groupBy(new KeySelector<JSONObject, String>() {
+            @Override
+            public String getKey(JSONObject jsonObject) throws Exception {
+                Integer idKey = jsonObject.getString("car").hashCode() % 100;
+                if(StringUtils.isNumeric(jsonObject.getString("car"))) {
+                    idKey = Math.toIntExact(Long.valueOf(jsonObject.getString("car")) % 100);
+                }
+
+                return idKey.toString();
+            }
+        }).reduceGroup(new CustomReduceFunction(confJSON)).withBroadcastSet(broadcast, "broadcast").output(new KafkaFormat());
 
 
 

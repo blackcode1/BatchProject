@@ -1,6 +1,6 @@
 package BatchCal;
 
-import BatchDataPacket.BaseClassDataType.TaskState;
+import StreamDataPacket.BaseClassDataType.TaskState;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.functions.RichGroupReduceFunction;
 import org.apache.flink.configuration.Configuration;

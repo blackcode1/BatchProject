@@ -1,15 +1,13 @@
 package BatchInput.getInputBroadcast;
 
-import BatchDataPacket.DataType;
-import BatchDataPacket.SubClassDataType.TaskInfoPacket;
-import BatchDataPacket.SubClassDataType.TaskVarPacket;
+import StreamDataPacket.DataType;
+import StreamDataPacket.SubClassDataType.TaskInfoPacket;
+import StreamDataPacket.SubClassDataType.TaskVarPacket;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.sql.SQLException;
 import java.util.*;
-
-import static java.lang.Math.max;
 
 public class BroadcastSource {
     private String projectID;

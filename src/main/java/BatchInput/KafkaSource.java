@@ -1,4 +1,4 @@
-package BatchInput.getInputBatch;
+package BatchInput;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.configuration.Configuration;

@@ -1,11 +1,11 @@
 package BatchDataPacket.BaseClass;
 
 import StreamDataPacket.BaseClassDataType.StreamDataset;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +18,7 @@ public class OCProject {
 
     public Integer parallelism;
     public String inputDataType;
-    public List<DataSet> inputDataSetList;
+    public List<DataSet<JSON>> inputDataSetList;
     public StreamDataset outputDataSet;
     public Map<String, String> context;
 
@@ -30,11 +30,11 @@ public class OCProject {
         this.checkpointTime = jsonObject.getInteger("CheckpointTime");
         this.parallelism = jsonObject.getInteger("Para");
         this.inputDataType = jsonObject.getString("StreamDataType");
-        this.inputDataSetList = new ArrayList<DataSet>();
+        this.inputDataSetList = new ArrayList<DataSet<JSON>>();
         JSONArray datasetList = jsonObject.getJSONArray("StreamDataSetList");
         for(int i = 0; i < datasetList.size(); i++){
             JSONObject dataset = datasetList.getJSONObject(i);
-            DataSet dataSet = new DataSet(dataset);
+            DataSet<JSON> dataSet = new DataSet<JSON>(dataset);
             this.inputDataSetList.add(dataSet);
         }
         this.outputDataSet = new StreamDataset(jsonObject.getJSONObject("OutputDataSet"));

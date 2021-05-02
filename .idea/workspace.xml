@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="401de6bb-833e-460a-bbf1-817495039132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BatchDataPacket/BaseClass/DataSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/IotdbInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/Source/KafkaSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BatchCal/BatchCal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchDataPacket/BaseClass/DataSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchDataPacket/BaseClass/DataSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BatchDataPacket/BaseClass/OCProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchDataPacket/BaseClass/OCProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/IotdbSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/IotdbSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/KafkaSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/KafkaSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/IotdbInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/IotdbInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/IotdbSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/IotdbSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/KafkaInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/KafkaInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/KafkaSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/KafkaSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch/Source/KafkaSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBroadcast/BroadcastSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBroadcast/BroadcastSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BatchProjectInit/SetStreamEnv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchProjectInit/SetStreamEnv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BatchSink/KafkaFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchSink/KafkaFormat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +53,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/BatchInput/getInputBatch" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -65,6 +66,8 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchInput\getInputBatch" />
+      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchInput" />
       <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java" />
       <recent name="D:\FlinkProject\BatchProject\src\main\java" />
     </key>
@@ -107,7 +110,9 @@
       <workItem from="1619263415561" duration="599000" />
       <workItem from="1619266014525" duration="1893000" />
       <workItem from="1619319917447" duration="10920000" />
-      <workItem from="1619675602423" duration="15466000" />
+      <workItem from="1619675602423" duration="17161000" />
+      <workItem from="1619868455048" duration="616000" />
+      <workItem from="1619935571690" duration="5128000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1619332536235</created>
@@ -151,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619334418490</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加kafka和iotdb input">
+      <created>1619697534826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619697534826</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +171,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="添加kafka和iotdb input" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加kafka和iotdb input" />
   </component>
   <component name="WindowStateProjectService">
     <state x="872" y="361" key="#Notifications" timestamp="1619334302527">
@@ -170,13 +183,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1619684945017" />
-    <state x="866" y="293" key="CommitChangelistDialog2" timestamp="1619334417789">
+    <state x="866" y="293" key="CommitChangelistDialog2" timestamp="1619710838094">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="866" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1619334417789" />
-    <state x="954" y="443" key="FileChooserDialogImpl" timestamp="1618207671027">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="866" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1619710838094" />
+    <state x="572" y="261" key="FileChooserDialogImpl" timestamp="1619939893235">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="572" y="261" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619939893235" />
     <state x="954" y="443" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1618207671027" />
     <state width="2517" height="400" key="GridCell.Tab.0.bottom" timestamp="1618331410666">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -202,14 +216,15 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1016" y="413" key="RollbackChangesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1619334093139" />
-    <state x="760" y="277" key="SettingsEditor" timestamp="1618207673597">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="456" y="115" key="SettingsEditor" timestamp="1619938038270">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="456" y="115" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619938038270" />
     <state x="760" y="277" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1618207673597" />
-    <state x="872" y="424" key="Vcs.Push.Dialog.v2" timestamp="1619334419363">
+    <state x="872" y="424" key="Vcs.Push.Dialog.v2" timestamp="1619697536741">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="424" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619334419363" />
+    <state x="872" y="424" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619697536741" />
     <state x="972" y="527" key="com.intellij.ide.util.TipDialog" timestamp="1619272028483">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

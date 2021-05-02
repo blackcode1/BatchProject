@@ -1,4 +1,4 @@
-package BatchInput.getInputBatch;
+package BatchInput;
 
 import org.apache.flink.api.common.io.InputFormat;
 import org.apache.flink.api.common.io.statistics.BaseStatistics;
