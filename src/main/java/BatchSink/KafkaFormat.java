@@ -55,8 +55,8 @@ public class KafkaFormat extends RichOutputFormat {
     private void getKafkaProducer() {
         Properties props = new Properties();
         props.put("bootstrap.servers", this.servers);
-        props.put("acks", "0");//判断是否成功发送，如果设置为0，那么生产者将不等待任何消息确认，acks=1，这意味着leader写入消息到本地日志就立即响应，而不等待所有follower应答，acks=all 这意味着leader将等待所有副本同步后应答消息。
-        props.put("retries", "10");//请求失败生产者重试次数
+        props.put("acks", "0");
+        props.put("retries", "10");
         props.put("batch.size", "16384");//缓存大小
         props.put("linger.ms", "0");//生产者发送请求之前等待一段时间
         props.put("buffer.memory", "33554432");

@@ -36,7 +36,7 @@ public class RunProject {
 
         List<DataSource<JSONObject>> sourceList = new ArrayList<>();
         List<JSONObject> list = new ArrayList<>();
-
+        DataSource<JSONObject> source1 = null;
         for(DataSet<JSON> dataSet:ocProject.inputDataSetList){
             if (dataSet.dataSourceType.equals("KAFKA")){
                 Properties props = new Properties();
@@ -83,7 +83,7 @@ public class RunProject {
                     }
                 }
 
-                DataSource<JSONObject> source = env.fromCollection(list);
+                source1 = env.fromCollection(list);
             }
             else if(dataSet.dataSourceType.equals("IOTDB")){
                 DataSource<Row> input = env.createInput(JDBCInputFormat.buildJDBCInputFormat()
@@ -97,14 +97,13 @@ public class RunProject {
 
             }
         }
-        DataSet<JSONObject> resultSet = BatchCal.batchCalTask();
 
         DataSource<Map<String, List<Map<String, String>>>> broadcast = env.fromCollection(new BroadcastSource("AC03E0AF43604B4D9F027CE77E18315E", "http://192.168.3.32:8000").getDE());
 
         broadcast.print();
 
 
-        resultSet.groupBy(new KeySelector<JSONObject, String>() {
+        source1.groupBy(new KeySelector<JSONObject, String>() {
             @Override
             public String getKey(JSONObject jsonObject) throws Exception {
                 Integer idKey = jsonObject.getString("car").hashCode() % 100;
