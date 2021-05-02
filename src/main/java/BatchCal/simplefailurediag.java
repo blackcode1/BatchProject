@@ -22,21 +22,19 @@ public class simplefailurediag extends RealTimeAlg<JSONObject> {
 	@param return: List<JSONObject>
 	*/
 	DeviceTimeWindow timeWindow = new DeviceTimeWindow(30000L, 5000L);
-
-	@Override
-	public Boolean init(RawDataPacket rawDataPacket, TransPacket transPacket, JSONObject jsonObject, List<String> list, Map<String, List<Map<String, String>>> map, List<TaskState> list1, TaskState taskState) throws Exception {
-		//填写用户算法初始化逻辑
-		return true;
-	}
 	/*
 	故障状态：0正常，1异常
 	故障起始时间-数据包时间、广播时间
 	若数据包中压力正常：故障状态=0，时间=0
 	如异常：故障状态=1
 	*/
+	@Override
+	public Boolean init(RawDataPacket rawDataPacket, TransPacket transPacket, JSONObject jsonObject, List<String> list, Map<String, List<Map<String, String>>> map, List<StreamDataPacket.BaseClassDataType.TaskState> list1, StreamDataPacket.BaseClassDataType.TaskState taskState) throws Exception {
+		return true;
+	}
 
 	@Override
-	protected List<JSONObject> calc(RawDataPacket rawDataPacket, TransPacket transPacket, JSONObject jsonObject, List<String> list, Map<String, List<Map<String, String>>> map, List<TaskState> list1, TaskState taskState) throws Exception {
+	protected List<JSONObject> calc(RawDataPacket rawDataPacket, TransPacket transPacket, JSONObject jsonObject, List<String> list, Map<String, List<Map<String, String>>> map, List<StreamDataPacket.BaseClassDataType.TaskState> list1, StreamDataPacket.BaseClassDataType.TaskState taskState) throws Exception {
 		//输出的结果res
 		List<JSONObject> res = new ArrayList<>();
 
@@ -193,5 +191,4 @@ public class simplefailurediag extends RealTimeAlg<JSONObject> {
 
 		return res;//输出故障诊断结果
 	}
-
 }

@@ -3,8 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="401de6bb-833e-460a-bbf1-817495039132" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/BatchCal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/simplefailurediag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchCal/simplefailurediag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BatchSink/KafkaFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchSink/KafkaFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchCal/CustomReduceFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchCal/simplefailurediag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchDataPacket/BaseClass/OCProject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchDataPacket/BaseClass/TaskState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchInput/getInputBatch/KafkaInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchInput/getInputBroadcast/BroadcastSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchInput/getInputBroadcast/GetTaskInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchInput/getInputBroadcast/GetTaskVar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/GetProjectInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/RunProject$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/RunProject$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/RunProject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/SetStreamEnv.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BatchProjectInit/StreamLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thss/rcinterface/RealTimeInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thss/rcsdk/DeviceTimeWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thss/rcsdk/RealTimeAlg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thss/rcsdk/SimpleTimeWindow.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +72,9 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="BatchCal" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="BatchInput.getInputBroadcast" />
       <recent name="BatchDataPacket.BaseClass" />
@@ -103,7 +127,7 @@
       <workItem from="1619319917447" duration="10920000" />
       <workItem from="1619675602423" duration="17161000" />
       <workItem from="1619868455048" duration="616000" />
-      <workItem from="1619935571690" duration="5425000" />
+      <workItem from="1619935571690" duration="8819000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1619332536235</created>
@@ -168,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619940881911</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="添加kafka和iotdb input">
+      <created>1619941116769</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619941116769</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,14 +215,15 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="872" y="361" key="#Notifications/0.0.2560.1400@0.0.2560.1400" timestamp="1619334302527" />
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser" timestamp="1619684945017">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1619684945017" />
-    <state x="520" y="18" key="CommitChangelistDialog2" timestamp="1619940881132">
+    <state x="651" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1619942167505">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="520" y="18" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1619940881132" />
+    <state x="651" y="240" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1619942167505" />
+    <state x="1085" y="408" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1619684945017" />
+    <state x="520" y="18" key="CommitChangelistDialog2" timestamp="1619941115957">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="520" y="18" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1619941115957" />
     <state x="866" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1619710838094" />
     <state x="572" y="261" key="FileChooserDialogImpl" timestamp="1619939893235">
       <screen x="0" y="0" width="1536" height="824" />
@@ -227,10 +259,10 @@
     </state>
     <state x="456" y="115" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619938038270" />
     <state x="760" y="277" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1618207673597" />
-    <state x="523" y="250" key="Vcs.Push.Dialog.v2" timestamp="1619940886205">
+    <state x="523" y="250" key="Vcs.Push.Dialog.v2" timestamp="1619941118063">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="523" y="250" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619940886205" />
+    <state x="523" y="250" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619941118063" />
     <state x="872" y="424" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619697536741" />
     <state x="972" y="527" key="com.intellij.ide.util.TipDialog" timestamp="1619272028483">
       <screen x="0" y="0" width="2560" height="1400" />

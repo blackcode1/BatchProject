@@ -17,8 +17,8 @@ public class CustomReduceFunction extends RichGroupReduceFunction<JSONObject, JS
     private transient Map<String, Map<String, List<Map<String, String>>>> allTaskVar = new HashMap<>();
 
     public CustomReduceFunction(JSONObject jsonObject) {
-        //RealTimeAlg realTimeAlg = new simplefailurediag();
-        //userAlg.put("xx", realTimeAlg);
+        RealTimeAlg realTimeAlg = new simplefailurediag();
+        userAlg.put("xx", realTimeAlg);
 
     }
 

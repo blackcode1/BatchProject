@@ -1,6 +1,5 @@
 package BatchProjectInit;
 
-import BatchCal.BatchCal;
 import BatchDataPacket.BaseClass.DataSet;
 import BatchDataPacket.BaseClass.OCProject;
 import BatchSink.KafkaFormat;
@@ -40,18 +39,18 @@ public class RunProject {
         for(DataSet<JSON> dataSet:ocProject.inputDataSetList){
             if (dataSet.dataSourceType.equals("KAFKA")){
                 Properties props = new Properties();
-                props.setProperty("bootstrap.servers", "192.168.3.32:9092");
+                props.setProperty("bootstrap.servers", dataSet.dataSourceIp + ":" + dataSet.dataSourcePort);
                 props.put("group.id", "tsx");
                 props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
                 props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
                 KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 
                 Map<TopicPartition, Long> map = new HashMap<>();
-                List<PartitionInfo> flink_order = consumer.partitionsFor("TEST50");
+                List<PartitionInfo> flink_order = consumer.partitionsFor(dataSet.dataSetTopic);
                 //从半小时前开始消费
-                long fetchDataTime = new Date().getTime() - 1000 * 60 * 60 * 24;
+                long fetchDataTime = new Date().getTime() - 1000 * 60 * 60 * 24;//dataSet.DataSetStartTime;
                 for (PartitionInfo par : flink_order) {
-                    map.put(new TopicPartition("teststoreb", par.partition()), fetchDataTime);
+                    map.put(new TopicPartition(dataSet.dataSetTopic, par.partition()), fetchDataTime);
                 }
                 Map<TopicPartition, OffsetAndTimestamp> parMap = consumer.offsetsForTimes(map);
                 for (Map.Entry<TopicPartition, OffsetAndTimestamp> entry : parMap.entrySet()) {
