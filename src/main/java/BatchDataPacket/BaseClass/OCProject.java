@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class OCProject {
     public OCProject(JSONObject jsonObject) throws Exception{
         this.projectID = jsonObject.getString("StreamProjectID");
         this.projectName = jsonObject.getString("StreamProjectName");
-        this.projectType = jsonObject.getString("");
+        this.projectType = jsonObject.getString("projectType");
         this.isCheckpoint = jsonObject.getBoolean("IsCheckpoint");
         this.checkpointTime = jsonObject.getInteger("CheckpointTime");
         this.parallelism = jsonObject.getInteger("Para");
@@ -37,7 +38,7 @@ public class OCProject {
             DataSet<JSON> dataSet = new DataSet<JSON>(dataset);
             this.inputDataSetList.add(dataSet);
         }
-        this.outputDataSet = new StreamDataset(jsonObject.getJSONObject("OutputDataSet"));
+//        this.outputDataSet = new StreamDataset(jsonObject.getJSONObject("OutputDataSet"));
 //        this.context = new HashMap<String, String>();
 //        for(String key: jsonObject.keySet()){
 //            this.context.put(key, jsonObject.getString(key));

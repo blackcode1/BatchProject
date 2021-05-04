@@ -33,15 +33,15 @@ public class KafkaFormat extends RichOutputFormat {
 
     @Override
     public void writeRecord(Object value) throws IOException {
-        if (this.msgType.equals(value.getMsgType())){
-            ProducerRecord<String, String> record=null;
-            if (value.getDeviceID()!=null){
-                record = new ProducerRecord<>(topic, value.getDeviceID(), value.toString());
-            }else {
-                record = new ProducerRecord<>(topic,value.toString());
-            }
-            producer.send(record);
-        }
+//        if (this.msgType.equals(value.getMsgType())){
+//            ProducerRecord<String, String> record=null;
+//            if (value.getDeviceID()!=null){
+//                record = new ProducerRecord<>(topic, value.getDeviceID(), value.toString());
+//            }else {
+//                record = new ProducerRecord<>(topic,value.toString());
+//            }
+//            producer.send(record);
+//        }
     }
 
     @Override
