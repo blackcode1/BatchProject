@@ -4,6 +4,7 @@ import BatchDataPacket.BaseClass.DataSet;
 import BatchDataPacket.BaseClass.OCProject;
 import BatchSink.KafkaFormat;
 import BatchCal.CustomReduceFunction;
+import StreamDataPacket.DataType;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -33,7 +34,7 @@ public class RunProject {
                 "\"IsCheckpoint\":0,\n" +
                 "\"projectType\":\"\",\n" +
                 "\"CheckpointTime\":30,\n" +
-                "\"Para\":1,\n" +
+                "\"Para\":2,\n" +
                 "\"StreamDataType\":\"KAFKA\",\n" +
                 "\"StreamDataSetList\":[{\n" +
                 "\"DataSetID\":\"1\",\n" +
@@ -94,6 +95,19 @@ public class RunProject {
                         consumer.assign(Arrays.asList(key));
                         consumer.seek(key, offset);
                     }
+                    while (true) {
+                        ConsumerRecords<String, String> records = consumer.poll(100);
+                        for (ConsumerRecord<String, String> record : records) {
+//                        if(record.timestamp() > 1614951256144L){
+//                            break;
+//                        }
+//                        list.add(JSONObject.parseObject(record.value()));
+                            System.out.println("record" + record.value());
+                        }
+                        if(records.count() == 0){
+                            break;
+                        }
+                    }
                 }
 
                 while (true) {
@@ -128,7 +142,10 @@ public class RunProject {
         outputConfig.setString("servers", ocProject.outputDataSet.dataSourceIp + ":" + ocProject.outputDataSet.dataSourcePort);
         outputConfig.setString("topic", ocProject.outputDataSet.dataSetTopic);
         outputConfig.setString("msgType", "msgType");
-        DataSource<Map<String, List<Map<String, String>>>> broadcast = env.fromCollection(new BroadcastSource("AC03E0AF43604B4D9F027CE77E18315E", "http://192.168.3.32:8000").getDE());
+
+        DataSource<DataType> broadcast = env.fromCollection(new BroadcastSource("AC03E0AF43604B4D9F027CE77E18315E", "http://192.168.3.32:8000").getDE());
+
+        //broad
 
         broadcast.print();
 

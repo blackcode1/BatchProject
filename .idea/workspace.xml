@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="401de6bb-833e-460a-bbf1-817495039132" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BatchSink/IotdbBatchSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/BAlgFromSA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/BatchAlg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/RTCFInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/RunUserFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/SAlgFromBA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/StreamAlg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchCal/CustomReduceFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchCal/GetUserAlg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchCal/GetUserAlg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBroadcast/BroadcastSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchInput/getInputBroadcast/BroadcastSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thss/rcinterface/RealTimeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thss/rcinterface/RealTimeInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thss/rcsdk/DeviceTimeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/DeviceTimeWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thss/rcsdk/RealTimeAlg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/RealTimeAlg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thss/rcsdk/SimpleTimeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thss/rcsdk/SimpleTimeWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/BatchSink" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/thss/rcinterface" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -60,11 +73,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchSink" />
       <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\thss\rcinterface" />
+      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\thss\rcsdk" />
+      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchSink" />
       <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchInput\getInputBatch" />
       <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java\BatchInput" />
-      <recent name="C:\Users\郑建辉\Desktop\实验室\离线\BatchProject\src\main\java" />
     </key>
   </component>
   <component name="RunManager">
@@ -108,7 +121,10 @@
       <workItem from="1619675602423" duration="17161000" />
       <workItem from="1619868455048" duration="616000" />
       <workItem from="1619935571690" duration="14435000" />
-      <workItem from="1620106958453" duration="8002000" />
+      <workItem from="1620106958453" duration="8648000" />
+      <workItem from="1620267839821" duration="609000" />
+      <workItem from="1620310873091" duration="5721000" />
+      <workItem from="1620353998501" duration="1205000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1619332536235</created>
@@ -194,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620131867688</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="添加kafka和iotdb input">
+      <created>1620134371214</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620134371214</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,52 +250,52 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1620134253482" />
-    <state x="520" y="17" key="CommitChangelistDialog2" timestamp="1620131866855">
+    <state x="520" y="17" key="CommitChangelistDialog2" timestamp="1620134370428">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="520" y="17" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1620131866855" />
+    <state x="520" y="17" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1620134370428" />
     <state x="866" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1619710838094" />
     <state x="572" y="261" key="FileChooserDialogImpl" timestamp="1619939893235">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="572" y="261" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619939893235" />
     <state x="954" y="443" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1618207671027" />
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1620131589486">
+    <state width="1493" height="134" key="GridCell.Tab.0.bottom" timestamp="1620311629437">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620131589486" />
+    <state width="1493" height="134" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620311629437" />
     <state width="2517" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1618331410666" />
-    <state width="1493" height="178" key="GridCell.Tab.0.center" timestamp="1620131589486">
+    <state width="1493" height="134" key="GridCell.Tab.0.center" timestamp="1620311629436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620131589486" />
+    <state width="1493" height="134" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620311629436" />
     <state width="2517" height="400" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1618331410666" />
-    <state width="1493" height="178" key="GridCell.Tab.0.left" timestamp="1620131589486">
+    <state width="1493" height="134" key="GridCell.Tab.0.left" timestamp="1620311629435">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620131589486" />
+    <state width="1493" height="134" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620311629435" />
     <state width="2517" height="400" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1618331410666" />
-    <state width="1493" height="178" key="GridCell.Tab.0.right" timestamp="1620131589486">
+    <state width="1493" height="134" key="GridCell.Tab.0.right" timestamp="1620311629436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620131589486" />
+    <state width="1493" height="134" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620311629436" />
     <state width="2517" height="400" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1618331410666" />
-    <state width="1493" height="342" key="GridCell.Tab.1.bottom" timestamp="1620131591654">
+    <state width="1493" height="201" key="GridCell.Tab.1.bottom" timestamp="1620311628372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620131591654" />
-    <state width="1493" height="342" key="GridCell.Tab.1.center" timestamp="1620131591653">
+    <state width="1493" height="201" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620311628372" />
+    <state width="1493" height="201" key="GridCell.Tab.1.center" timestamp="1620311628371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620131591653" />
-    <state width="1493" height="342" key="GridCell.Tab.1.left" timestamp="1620131591653">
+    <state width="1493" height="201" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620311628371" />
+    <state width="1493" height="201" key="GridCell.Tab.1.left" timestamp="1620311628371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620131591653" />
-    <state width="1493" height="342" key="GridCell.Tab.1.right" timestamp="1620131591653">
+    <state width="1493" height="201" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620311628371" />
+    <state width="1493" height="201" key="GridCell.Tab.1.right" timestamp="1620311628371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620131591653" />
+    <state width="1493" height="201" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620311628371" />
     <state x="810" y="358" key="Maven.ArtifactSearchDialog" timestamp="1619689514436">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -286,15 +309,15 @@
     </state>
     <state x="456" y="115" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620107309695" />
     <state x="760" y="277" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1618207673597" />
-    <state x="523" y="250" key="Vcs.Push.Dialog.v2" timestamp="1620131868954">
+    <state x="523" y="250" key="Vcs.Push.Dialog.v2" timestamp="1620134372354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="523" y="250" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620131868954" />
+    <state x="523" y="250" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620134372354" />
     <state x="872" y="424" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619697536741" />
-    <state x="972" y="527" key="com.intellij.ide.util.TipDialog" timestamp="1619272028483">
+    <state x="972" y="527" key="com.intellij.ide.util.TipDialog" timestamp="1620353998095">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="972" y="527" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1619272028483" />
+    <state x="972" y="527" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1620353998095" />
     <state x="654" y="404" key="new project wizard" timestamp="1619694754971">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -303,18 +326,23 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="472" y="45" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1620134243701" />
-    <state x="431" y="145" key="search.everywhere.popup" timestamp="1620108415885">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1620313817933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1620108415885" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1620313817933" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java</url>
-          <line>130</line>
+          <line>145</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/BatchProjectInit/RunProject.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

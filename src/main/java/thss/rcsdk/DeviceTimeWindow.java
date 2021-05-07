@@ -1,5 +1,6 @@
 package thss.rcsdk;
 
+import cn.edu.thss.rcsdk.SimpleTimeWindow;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ public class DeviceTimeWindow implements Serializable {
 
     public Long size;
     public Long slide;
-    Map<String, SimpleTimeWindow> timeWindowMap = new HashMap<>();
+    Map<String, cn.edu.thss.rcsdk.SimpleTimeWindow> timeWindowMap = new HashMap<>();
 
     public DeviceTimeWindow(Long size) {
         this.size = size;

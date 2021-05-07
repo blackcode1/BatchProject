@@ -18,12 +18,16 @@ public class BroadcastSource {
         this.engineUrl = engineUrl;
     }
 
-    public DataType collectTaskInfo(JSONObject taskInfo) throws Exception {
+    public DataType collectTaskInfo(JSONObject taskInfo){
         DataType taskInfoData = null;
-        taskInfoData = (DataType) new TaskInfoPacket(taskInfo);
+        try {
+            taskInfoData = (DataType) new TaskInfoPacket(taskInfo);
+        } catch (Exception e) {
+//            String logStr = StreamLog.createLocalLog(e, "ERROR", "任务信息解析异常", this.projectID);
+//            taskInfoData = (DataType) new LogList(logStr);
+        }
         return taskInfoData;
     }
-
     public List<DataType> collectTaskVar(JSONObject taskInfo) throws SQLException {
 
         Map<String, List<Map<String, String>>> bigPacket = new HashMap<String, List<Map<String, String>>>();
@@ -95,20 +99,18 @@ public class BroadcastSource {
         return res;
     }
 
-    public List<Map<String, List<Map<String, String>>>> getDE() throws Exception {
-        List<Map<String, List<Map<String, String>>>> res = new ArrayList<>();
+    public List<DataType> getDE() throws Exception {
+        List<DataType> res = new ArrayList<>();
 
         JSONObject taskInfo = null;
+        //写一个任务信息 todo
         taskInfo = GetTaskInfo.getTaskInfo(this.projectID, this.engineUrl);
 
         if(taskInfo != null){
-            List<DataType> list = this.collectTaskVar(taskInfo);
-            for(int i = 0; i < list.size(); i++){
-                DataType x = list.get(i);
-                TaskVarPacket packet = (TaskVarPacket) x;
-                res.add(packet.taskvar);
-            }
+            List<DataType> list = this.collectTaskVar(taskInfo); //配置数据
+            res.addAll(list);
         }
+        res.add(this.collectTaskInfo(taskInfo));
         return res;
     }
 }
